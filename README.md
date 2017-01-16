@@ -1,9 +1,7 @@
 # README
 
 
-
 1. Install these packages: `devtools`, `roxygen2`, 
-
 
 
 2. Inside RStudio or R, load the package `devtools` first and run:
@@ -12,7 +10,6 @@
 # no spaces, no underscores, no dashes
 create("C:/Users/ptech/git.projects/CreatingPackages")   
 ```
-
 
 
 Quit RStudio or R and from the command line, create a git repository with:
