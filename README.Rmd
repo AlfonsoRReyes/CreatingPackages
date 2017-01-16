@@ -148,14 +148,14 @@ Main folder structure:
 
 We will modify the notebook a little bit. Staring with the objects `baseLoc` and `extPath`. Modify the first chunk into this:
 
-```
-```{r datamunging}
+
+<pre><code>```{r datamunging}
 baseLoc <- system.file(package="ismbTweetAnalysis")
 extPath <- file.path(baseLoc, "extdata")
 baseLoc
 extPath
-```
-```
+```</code></pre>
+
 
 Run the chunk. Your output would look to something like this:
 

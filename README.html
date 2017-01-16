@@ -215,12 +215,12 @@ No man pages found in package  'CreatingPackages'
 <div id="check-if-the-notebook-is-running" class="section level2">
 <h2>Check if the notebook is running</h2>
 <p>We will modify the notebook a little bit. Staring with the objects <code>baseLoc</code> and <code>extPath</code>. Modify the first chunk into this:</p>
-<pre><code>```{r datamunging}
+<pre><code>```{r datamunging}
 baseLoc &lt;- system.file(package=&quot;ismbTweetAnalysis&quot;)
 extPath &lt;- file.path(baseLoc, &quot;extdata&quot;)
 baseLoc
 extPath
-```</code></pre>
+```</code></pre>
 <p>Run the chunk. Your output would look to something like this:</p>
 <pre><code>[1] &quot;C:/Users/ptech/Documents/R/win-library/3.3/CreatingPackages&quot;
 [1] &quot;C:/Users/ptech/Documents/R/win-library/3.3/CreatingPackages/extdata&quot;</code></pre>
