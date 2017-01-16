@@ -179,7 +179,17 @@ The first script we call it `ismb2012-data.R` and enter this code:
 "ismb12"
 ```
 
-This will take of documenting the data. Do the same thing for the second data file.
+This will take of documenting the data. Do the same thing for the second data file `ismb2014.RData`.
+
+
+## Tests
+1. Start by installing the package `testthat`.
+2. Load it with:
+```
+library(testthat)
+```
+3. Create the folder `tests/testthat`.
+4. Test that the initial set up works by running `Build`, `Test Package`.
 
 
 
