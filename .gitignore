@@ -3,3 +3,5 @@
 .RData
 NAMESPACE
 man
+README.html
+README.nb.html
