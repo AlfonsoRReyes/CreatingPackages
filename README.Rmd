@@ -163,6 +163,7 @@ Run the chunk. Your output would look to something like this:
 
 This is important because we will use this technique to get the relative paths to our files under `data` and under `inst/data`
 
+* A `README` file can be added at the project root folder by creating a notebook `README.Rmd` and choosing to keep the `.md` files.
 
 
 Notes
