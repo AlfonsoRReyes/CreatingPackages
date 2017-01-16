@@ -1,0 +1,25 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+## tweetCounts() for 2012
+```{r}
+load("../../data/ismb2012.RData")
+counts2012 <- tweetCounts(ismb12)
+counts2012
+dim(counts2012)
+class(counts2012)
+```
+
+```{r}
+load("../../data/ismb2014.RData")
+counts2014 <- tweetCounts(ismb14)
+counts2014
+dim(counts2014)
+```
+
+```{r}
+getwd()
+```
+
