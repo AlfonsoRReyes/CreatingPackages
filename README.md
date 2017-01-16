@@ -31,7 +31,7 @@ VignetteBuilder: knitr
 
 
 
-Add these folders: `data`, `inst`, `inst/extdata`
+Add these folders: `data`, `inst`, `inst/extdata` to the project root.
 
 Copy these raw data files to `inst/extdata`:
 
