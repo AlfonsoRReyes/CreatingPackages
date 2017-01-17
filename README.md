@@ -207,11 +207,16 @@ You can use another name for your vignette.
 To generate the vignette auxiliary files do this:
 
 ```
-devtools::build_vignettes()
+> devtools::build_vignettes()
 ```
 
+A bunch of files will be created and moved. A set of three files for vignette are created under the `inst/doc` folder (html, Rmd and R files). Commit and push these files. 
+
+The vignette can later be called after loading the package with `vignette(<name of the vignette>). If you don't know the name, just type vignette().
 
 
-Notes
+
+
+## Notes
 
 The `man` folder doesn't need to be created; it is created by `devtools`.
