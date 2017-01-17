@@ -11,7 +11,7 @@ The goal of this work is to analyze two different collections of archived tweets
 Before we start to use this data, we will do some munging on it so that both data-sets are comparable and we can apply the same functions to them for comparison.
 
 ```{r datamunging}
-baseLoc <- system.file(package="ismbTweetAnalysis")
+baseLoc <- system.file(package="CreatingPackages")
 extPath <- file.path(baseLoc, "extdata")
 ```
 
