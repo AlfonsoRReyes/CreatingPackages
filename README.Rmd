@@ -35,6 +35,8 @@ Modify the file `DESCRIPTION` and add this line at the end:
 VignetteBuilder: knitr
 ```
 
+Ensure that `roxygen2` check box is deactivated in the `Roxygen` options under `Tools`, `Project Options`.
+
 
 
 Add these folders: `data`, `inst`, `inst/extdata` to the project root.
