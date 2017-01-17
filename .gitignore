@@ -2,9 +2,7 @@
 .Rhistory
 .RData
 NAMESPACE
-man
 *.html
 README.nb.html
 README.html
-packrat/lib*/
-packrat/src/
+
