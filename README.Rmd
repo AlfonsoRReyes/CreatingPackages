@@ -223,6 +223,6 @@ The vignette can later be called after loading the package with `vignette(<name 
 
 
 
-Notes
+## Notes
 
 The `man` folder doesn't need to be created; it is created by `devtools`.
