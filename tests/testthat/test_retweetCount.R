@@ -15,6 +15,6 @@ test_that("tetweetCount sum 2014", {
   load("../../data/ismb2014.RData")
   rtCount14 <- retweetCount(ismb14)
   result <- sum(rtCount14$countRT)
-  result
+  cat(result)
   expect_equal(result, 1944)
 })
