@@ -192,6 +192,24 @@ library(testthat)
 4. Test that the initial set up works by running `Build`, `Test Package`.
 
 
+## Create the vignettes
+The vignettes are `.Rmd` files with examples and demonstrations of the features of the package. The vignettes should be stored in the `vignettes` folder under the project root folder.
+
+To initialize the vignettes folder do this;
+
+
+```
+> devtools::use_vignette("ismb_analysis")
+```
+
+You can use another name for your vignette.
+
+To generate the vignette auxiliary files do this:
+
+```
+devtools::build_vignettes()
+```
+
 
 
 Notes
