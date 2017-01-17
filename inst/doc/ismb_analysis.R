@@ -1,3 +1,6 @@
+## ----setup, include=FALSE, error=TRUE, message=FALSE---------------------
+knitr::opts_chunk$set(echo = TRUE, comment = NA, error = TRUE)
+
 ## ----datamunging---------------------------------------------------------
 baseLoc <- system.file(package="CreatingPackages")
 extPath <- file.path(baseLoc, "extdata")

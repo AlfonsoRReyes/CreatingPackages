@@ -243,20 +243,20 @@ data(ismb2012)
 head(ismb12)
 </code></pre>
 
-<pre><code>##                                                                                                                                                             text
-## 1                   Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/D7zLIdNE
-## 2 RT @BSI_SIG_2012: Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/jCZSUAAp
-## 3                                          Hooray! First #comicsans talk of the conference. Didn&#39;t take long. It&#39;s like an old friend that refuses to die. #ismb
-## 4       RT @phylogenomics: Slides from my talk for #SCS2012 at #ISMB &quot;Networks in genomics &amp;amp; bioinformatics: from phylogeny to Twitter&quot; http://t.co/csHUb3ps
-## 5               RT @Chris_Evelo: Kitana explaining we *need* interoperable software because you can never develop a system that does everything #ISMB #netbiosig
-## 6                                 CS: The complexity for Wij is 2**(N**2), which is intractable. One strategy is to avoid it is to use Belief Propagation. #ismb
-##               created                 id  screenName hashSearch
-## 1 2012-07-13 23:55:00 223928547658563586 Chris_Evelo       ismb
-## 2 2012-07-13 23:53:53 223928264178147328      gawbul       ismb
-## 3 2012-07-13 23:52:48 223927992756355072 froggleston       ismb
-## 4 2012-07-13 23:51:57 223927777508864001      gawbul       ismb
-## 5 2012-07-13 23:47:45 223926722968555520        FGED       ismb
-## 6 2012-07-13 23:46:27 223926394344833024   iGenomics       ismb
+<pre><code>                                                                                                                                                            text
+1                   Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/D7zLIdNE
+2 RT @BSI_SIG_2012: Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/jCZSUAAp
+3                                          Hooray! First #comicsans talk of the conference. Didn&#39;t take long. It&#39;s like an old friend that refuses to die. #ismb
+4       RT @phylogenomics: Slides from my talk for #SCS2012 at #ISMB &quot;Networks in genomics &amp;amp; bioinformatics: from phylogeny to Twitter&quot; http://t.co/csHUb3ps
+5               RT @Chris_Evelo: Kitana explaining we *need* interoperable software because you can never develop a system that does everything #ISMB #netbiosig
+6                                 CS: The complexity for Wij is 2**(N**2), which is intractable. One strategy is to avoid it is to use Belief Propagation. #ismb
+              created                 id  screenName hashSearch
+1 2012-07-13 23:55:00 223928547658563586 Chris_Evelo       ismb
+2 2012-07-13 23:53:53 223928264178147328      gawbul       ismb
+3 2012-07-13 23:52:48 223927992756355072 froggleston       ismb
+4 2012-07-13 23:51:57 223927777508864001      gawbul       ismb
+5 2012-07-13 23:47:45 223926722968555520        FGED       ismb
+6 2012-07-13 23:46:27 223926394344833024   iGenomics       ismb
 </code></pre>
 
 <pre><code class="r">library(ggplot2)
@@ -271,49 +271,49 @@ ggplot(ismb12, aes(x=created)) + geom_bar()
 head(counts2012)
 </code></pre>
 
-<pre><code>##                screenName total original retweet
-## _IanMacLeod   _IanMacLeod     1        1       0
-## 32nm                 32nm     6        0       6
-## 4a6a5a             4a6a5a     1        0       1
-## aadhyadi         aadhyadi     1        0       1
-## aaronquinlan aaronquinlan     1        0       1
-## ajcasamayor   ajcasamayor     1        0       1
+<pre><code>               screenName total original retweet
+_IanMacLeod   _IanMacLeod     1        1       0
+32nm                 32nm     6        0       6
+4a6a5a             4a6a5a     1        0       1
+aadhyadi         aadhyadi     1        0       1
+aaronquinlan aaronquinlan     1        0       1
+ajcasamayor   ajcasamayor     1        0       1
 </code></pre>
 
 <pre><code class="r">head(counts2012[order(counts2012$total, decreasing = TRUE),])
 </code></pre>
 
-<pre><code>##                  screenName total original retweet
-## Chris_Evelo     Chris_Evelo   293      258      35
-## genetics_blog genetics_blog   221      216       5
-## tladeras           tladeras   162      161       1
-## iGenomics         iGenomics   125      119       6
-## WonderMixTape WonderMixTape   124      109      15
-## alexishkin       alexishkin    91       83       8
+<pre><code>                 screenName total original retweet
+Chris_Evelo     Chris_Evelo   293      258      35
+genetics_blog genetics_blog   221      216       5
+tladeras           tladeras   162      161       1
+iGenomics         iGenomics   125      119       6
+WonderMixTape WonderMixTape   124      109      15
+alexishkin       alexishkin    91       83       8
 </code></pre>
 
 <pre><code class="r">head(counts2012[order(counts2012$original, decreasing = TRUE), ])
 </code></pre>
 
-<pre><code>##                  screenName total original retweet
-## Chris_Evelo     Chris_Evelo   293      258      35
-## genetics_blog genetics_blog   221      216       5
-## tladeras           tladeras   162      161       1
-## iGenomics         iGenomics   125      119       6
-## WonderMixTape WonderMixTape   124      109      15
-## alexishkin       alexishkin    91       83       8
+<pre><code>                 screenName total original retweet
+Chris_Evelo     Chris_Evelo   293      258      35
+genetics_blog genetics_blog   221      216       5
+tladeras           tladeras   162      161       1
+iGenomics         iGenomics   125      119       6
+WonderMixTape WonderMixTape   124      109      15
+alexishkin       alexishkin    91       83       8
 </code></pre>
 
 <pre><code class="r">head(counts2012[order(counts2012$retweet, decreasing = TRUE), ])
 </code></pre>
 
-<pre><code>##                  screenName total original retweet
-## Chris_Evelo     Chris_Evelo   293      258      35
-## sciencestream sciencestream    35        0      35
-## isatools           isatools    28        2      26
-## rnomics             rnomics    23        0      23
-## bffo                   bffo    90       68      22
-## gawbul               gawbul    25        3      22
+<pre><code>                 screenName total original retweet
+Chris_Evelo     Chris_Evelo   293      258      35
+sciencestream sciencestream    35        0      35
+isatools           isatools    28        2      26
+rnomics             rnomics    23        0      23
+bffo                   bffo    90       68      22
+gawbul               gawbul    25        3      22
 </code></pre>
 
 <h2>2014</h2>
@@ -336,37 +336,37 @@ head(counts2012)
 head(counts2014)
 </code></pre>
 
-<pre><code>##              screenName total original retweet
-## __jasf           __jasf     1        0       1
-## _bow_             _bow_     7        5       2
-## _BUKANARTIS _BUKANARTIS     1        1       0
-## _inundata     _inundata     1        0       1
-## _JulieNixon _JulieNixon     2        0       2
-## _ThWill_       _ThWill_     1        0       1
+<pre><code>             screenName total original retweet
+__jasf           __jasf     1        0       1
+_bow_             _bow_     7        5       2
+_BUKANARTIS _BUKANARTIS     1        1       0
+_inundata     _inundata     1        0       1
+_JulieNixon _JulieNixon     2        0       2
+_ThWill_       _ThWill_     1        0       1
 </code></pre>
 
 <pre><code class="r">head(counts2014[order(counts2014$total, decreasing=TRUE), ])
 </code></pre>
 
-<pre><code>##                      screenName total original retweet
-## rtraborn               rtraborn   137       99      38
-## iGenomics             iGenomics   102       75      27
-## WonderMixTape     WonderMixTape    81       42      39
-## GigaScience         GigaScience    79       70       9
-## jmgreene83           jmgreene83    74       60      14
-## Alfons_Valencia Alfons_Valencia    71       40      31
+<pre><code>                     screenName total original retweet
+rtraborn               rtraborn   137       99      38
+iGenomics             iGenomics   102       75      27
+WonderMixTape     WonderMixTape    81       42      39
+GigaScience         GigaScience    79       70       9
+jmgreene83           jmgreene83    74       60      14
+Alfons_Valencia Alfons_Valencia    71       40      31
 </code></pre>
 
 <pre><code class="r">head(counts2014[order(counts2014$retweet, decreasing=TRUE), ])
 </code></pre>
 
-<pre><code>##                    screenName total original retweet
-## OmicsOmicsBlog OmicsOmicsBlog    64        0      64
-## Daniel_B_Roche Daniel_B_Roche    46        3      43
-## druvus                 druvus    55       15      40
-## WonderMixTape   WonderMixTape    81       42      39
-## rtraborn             rtraborn   137       99      38
-## cathcoste           cathcoste    35        0      35
+<pre><code>                   screenName total original retweet
+OmicsOmicsBlog OmicsOmicsBlog    64        0      64
+Daniel_B_Roche Daniel_B_Roche    46        3      43
+druvus                 druvus    55       15      40
+WonderMixTape   WonderMixTape    81       42      39
+rtraborn             rtraborn   137       99      38
+cathcoste           cathcoste    35        0      35
 </code></pre>
 
 <h2>Comparison</h2>
@@ -405,25 +405,25 @@ countDiff1214 &lt;- countDiff1214[order(countDiff1214$diff),]
 head(countDiff1214)
 </code></pre>
 
-<pre><code>##          screenName diff
-## 26      julponchart   34
-## 32      genomespace   34
-## 87      gkarthik_92   34
-## 100 SpringerCompSci   34
-## 3              FGED   69
-## 11  kseniakrasileva   76
+<pre><code>         screenName diff
+26      julponchart   34
+32      genomespace   34
+87      gkarthik_92   34
+100 SpringerCompSci   34
+3              FGED   69
+11  kseniakrasileva   76
 </code></pre>
 
 <pre><code class="r">tail(countDiff1214)
 </code></pre>
 
-<pre><code>##         screenName  diff
-## 28        infoecho 442.0
-## 91        nomad421 481.0
-## 29 pathogenomenick 500.0
-## 37     drbachinsky 547.5
-## 41     jamesmalone 562.0
-## 85 i_am_kilpatrick 573.0
+<pre><code>        screenName  diff
+28        infoecho 442.0
+91        nomad421 481.0
+29 pathogenomenick 500.0
+37     drbachinsky 547.5
+41     jamesmalone 562.0
+85 i_am_kilpatrick 573.0
 </code></pre>
 
 <pre><code class="r">rtCount12 &lt;- retweetCount(ismb12)
@@ -444,25 +444,25 @@ rtDiff1214 &lt;- rtDiff1214[order(rtDiff1214$diff), ]
 head(rtDiff1214)
 </code></pre>
 
-<pre><code>##       screenName diff
-## 2  antidemagogue  3.5
-## 6    biobrichter  3.5
-## 8            c_z  3.5
-## 10     chunleiwu  3.5
-## 17        EvoMRI  3.5
-## 41      nomad421  3.5
+<pre><code>      screenName diff
+2  antidemagogue  3.5
+6    biobrichter  3.5
+8            c_z  3.5
+10     chunleiwu  3.5
+17        EvoMRI  3.5
+41      nomad421  3.5
 </code></pre>
 
 <pre><code class="r">tail(rtDiff1214)
 </code></pre>
 
-<pre><code>##      screenName  diff
-## 3  assemblathon 121.0
-## 49 WikiPathways 121.0
-## 9   Chris_Evelo 133.0
-## 13       druvus 160.5
-## 33  jamesmalone 160.5
-## 16    etalevich 168.5
+<pre><code>     screenName  diff
+3  assemblathon 121.0
+49 WikiPathways 121.0
+9   Chris_Evelo 133.0
+13       druvus 160.5
+33  jamesmalone 160.5
+16    etalevich 168.5
 </code></pre>
 
 </body>
