@@ -6,7 +6,6 @@
 .Rproj.user
 .Rhistory
 .RData
-*.html
 README.nb.html
 README.html
 .DS_Store
