@@ -3,6 +3,11 @@ title: "R Notebook"
 output: html_notebook
 ---
 
+```{r}
+library(testthat)
+```
+
+
 ## tweetCounts() for 2012
 ```{r}
 load("../../data/ismb2012.RData")
@@ -19,7 +24,46 @@ counts2014
 dim(counts2014)
 ```
 
+## tweetRank()
+
 ```{r}
-getwd()
+# test sum and length for 2012
+load("../../data/ismb2012.RData")
+counts2012 <- tweetCounts(ismb12)
+counts2012$rank <- tweetRank(counts2012$total)
+expect_equal(sum(counts2012$rank), 77421)
+expect_equal(length(counts2012$rank), 393)
 ```
 
+```{r}
+load("../../data/ismb2014.RData")
+counts2014 <- tweetCounts(ismb14)
+counts2014$rank <- tweetRank(counts2014$total)
+expect_equal(sum(counts2014$rank), 240471)
+expect_equal(length(counts2014$rank), 693)
+
+```
+
+
+
+
+
+## retweetCount()
+```{r}
+# compare sum of retweets 2012
+load("../../data/ismb2012.RData")
+rtCount12 <- retweetCount(ismb12)
+result <- sum(rtCount12$countRT)
+result
+expect_equal(result, 814)
+```
+
+
+```{r}
+# compare sum of retweets 2014
+load("../../data/ismb2014.RData")
+rtCount14 <- retweetCount(ismb14)
+result <- sum(rtCount14$countRT)
+result
+expect_equal(result, 1944)
+```
