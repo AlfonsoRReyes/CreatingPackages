@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>ISMB Twitter Analysis</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{ISMB Twitter Analysis}
+%\VignetteDepends{ggplot2, ismbTweetAnalysis}
+-->
+
+<h1>ISMB Twitter Analysis</h1>
+
+<p>The goal of this work is to analyze two different collections of archived tweets from the ISMB conferences from 2012 and 2014, and compare and contrast them. The collections of tweets are from Neil Saunders (<a href="http://nsaunders.wordpress.com/2012/08/16/twitter-coverage-of-the-ismb-2012-meeting-some-statistics/">his initial analysis</a> and <a href="https://github.com/neilfws/Twitter/tree/master/ismb/data">data</a>) and Stephen Turner (<a href="http://gettinggeneticsdone.blogspot.com/2013/05/automated-analysis-tweets-bioinformatics-twitterchive.html">initial analysis</a> and <a href="https://github.com/stephenturner/twitterchive">data</a>).</p>
+
+<p>Before we start to use this data, we will do some munging on it so that both data-sets are comparable and we can apply the same functions to them for comparison.</p>
+
+<pre><code class="r">baseLoc &lt;- system.file(package=&quot;CreatingPackages&quot;)
+extPath &lt;- file.path(baseLoc, &quot;extdata&quot;)
+</code></pre>
+
+<pre><code class="r">load(file.path(extPath, &quot;ismb2012.RData&quot;))
+ismb12 &lt;- ismb[, c(&quot;text&quot;, &quot;created&quot;, &quot;id&quot;, &quot;screenName&quot;)]
+ismb12$hashSearch &lt;- &quot;ismb&quot;
+save(ismb12, file=&quot;../data/ismb2012.RData&quot;)
+</code></pre>
+
+<p>This is especially important for the 2014 data, because it is not in <code>rdata</code> format, and there were actually three different hashtags searched for. </p>
+
+<pre><code class="r">ismb &lt;- readTweetData(file.path(extPath, &quot;ismb.txt&quot;), &quot;ismb&quot;)
+ismb2014 &lt;- readTweetData(file.path(extPath, &quot;ismb2014.txt&quot;), &quot;ismb2014&quot;)
+ismb14 &lt;- readTweetData(file.path(extPath, &quot;ismb14.txt&quot;), &quot;ismb14&quot;)
+ismb14 &lt;- rbind(ismb, ismb14, ismb2014)
+save(ismb14, file=&quot;../data/ismb2014.RData&quot;)
+</code></pre>
+
+<h1>Analysis</h1>
+
+<p>Lets do some simple things in each case. For example, we can look at the distribution of tweets by time, who had the most <code>retweets</code>, who was the most prolific tweeter (as a percentage of total tweets), etc, and even for changes between the two years. Note that this is not the most comprehensive analysis we could do, because this is mostly an example analysis of how to do an analysis as a package vignette, but I need to do something, right?</p>
+
+<h2>2012</h2>
+
+<pre><code class="r">library(CreatingPackages)
+data(ismb2012)
+head(ismb12)
+</code></pre>
+
+<pre><code>##                                                                                                                                                             text
+## 1                   Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/D7zLIdNE
+## 2 RT @BSI_SIG_2012: Bioinformatics developers at #ISMB: at BSI SIG add your tool to @cytoscape, @galaxyproject, @genepattern, @genomespace  http://t.co/jCZSUAAp
+## 3                                          Hooray! First #comicsans talk of the conference. Didn&#39;t take long. It&#39;s like an old friend that refuses to die. #ismb
+## 4       RT @phylogenomics: Slides from my talk for #SCS2012 at #ISMB &quot;Networks in genomics &amp;amp; bioinformatics: from phylogeny to Twitter&quot; http://t.co/csHUb3ps
+## 5               RT @Chris_Evelo: Kitana explaining we *need* interoperable software because you can never develop a system that does everything #ISMB #netbiosig
+## 6                                 CS: The complexity for Wij is 2**(N**2), which is intractable. One strategy is to avoid it is to use Belief Propagation. #ismb
+##               created                 id  screenName hashSearch
+## 1 2012-07-13 23:55:00 223928547658563586 Chris_Evelo       ismb
+## 2 2012-07-13 23:53:53 223928264178147328      gawbul       ismb
+## 3 2012-07-13 23:52:48 223927992756355072 froggleston       ismb
+## 4 2012-07-13 23:51:57 223927777508864001      gawbul       ismb
+## 5 2012-07-13 23:47:45 223926722968555520        FGED       ismb
+## 6 2012-07-13 23:46:27 223926394344833024   iGenomics       ismb
+</code></pre>
+
+<pre><code class="r">library(ggplot2)
+ggplot(ismb12, aes(x=created)) + geom_bar()
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk visualize2012"/></p>
+
+<p>What about who does the most tweeting, whether direct or retweets?</p>
+
+<pre><code class="r">counts2012 &lt;- tweetCounts(ismb12)
+head(counts2012)
+</code></pre>
+
+<pre><code>##                screenName total original retweet
+## _IanMacLeod   _IanMacLeod     1        1       0
+## 32nm                 32nm     6        0       6
+## 4a6a5a             4a6a5a     1        0       1
+## aadhyadi         aadhyadi     1        0       1
+## aaronquinlan aaronquinlan     1        0       1
+## ajcasamayor   ajcasamayor     1        0       1
+</code></pre>
+
+<pre><code class="r">head(counts2012[order(counts2012$total, decreasing = TRUE),])
+</code></pre>
+
+<pre><code>##                  screenName total original retweet
+## Chris_Evelo     Chris_Evelo   293      258      35
+## genetics_blog genetics_blog   221      216       5
+## tladeras           tladeras   162      161       1
+## iGenomics         iGenomics   125      119       6
+## WonderMixTape WonderMixTape   124      109      15
+## alexishkin       alexishkin    91       83       8
+</code></pre>
+
+<pre><code class="r">head(counts2012[order(counts2012$original, decreasing = TRUE), ])
+</code></pre>
+
+<pre><code>##                  screenName total original retweet
+## Chris_Evelo     Chris_Evelo   293      258      35
+## genetics_blog genetics_blog   221      216       5
+## tladeras           tladeras   162      161       1
+## iGenomics         iGenomics   125      119       6
+## WonderMixTape WonderMixTape   124      109      15
+## alexishkin       alexishkin    91       83       8
+</code></pre>
+
+<pre><code class="r">head(counts2012[order(counts2012$retweet, decreasing = TRUE), ])
+</code></pre>
+
+<pre><code>##                  screenName total original retweet
+## Chris_Evelo     Chris_Evelo   293      258      35
+## sciencestream sciencestream    35        0      35
+## isatools           isatools    28        2      26
+## rnomics             rnomics    23        0      23
+## bffo                   bffo    90       68      22
+## gawbul               gawbul    25        3      22
+</code></pre>
+
+<h2>2014</h2>
+
+<p>Lets do a similar analysis for 2014. </p>
+
+<pre><code class="r">data(ismb2014)
+</code></pre>
+
+<p>Simple visualization of the tweets by time.</p>
+
+<pre><code class="r">ggplot(ismb14, aes(x = created)) + geom_bar()
+</code></pre>
+
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfgAAAH4CAMAAACR9g9NAAAA0lBMVEUAAAAAADoAAGYAOmYAOpAAZmYAZrYzMzM6AAA6ADo6AGY6OgA6OmY6OpA6kNtNTU1NTW5NTY5NbqtNjshZWVlmAABmADpmAGZmOgBmOpBmtv9uTU1uTY5ubm5ubqtujshuq6tuq+SOTU2OTY6ObquOjsiOq+SOyP+QOgCQOjqQ2/+rbk2rbo6r5P+2ZgC2///Ijk3Ijm7Ijo7IyP/I///bkDrb25Db///kq27kq47k/8jk///r6+v/tmb/yI7/25D/5Kv//7b//8j//9v//+T///9qv3uZAAAACXBIWXMAAAsSAAALEgHS3X78AAAMbklEQVR4nO3dcVcT6RlAcdZa2d12jdW4u9V2t2zRWC0L7mrFUiEE5vt/pc4kQCC8MMnkncx9kvv8wQTMXp/jjzeZ08pxq3A2cra6XsDpZoTf0BF+Q0f4DZ0F4P+Xa/KVVtsOu/jNtvCouPDcdtjFhQfHhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxeeHPxwU5+96z6qHl1fh4y4+N/xBb1Ac7xQHg/Lx5VX4uIvPCz/6vTzxn/cq8+Lqur09/5uCw587X+rfX4BfXj3xcRdf6D1+9sQLH3fxheB9j19tHAM/vpsf7R55V7+aOAM+OS3tkXeEr20Lj4oLz22HXVx4cFx4bjvs4sKD48Jz22EXFx4cF57bDru48OC48Nx22MWFB8eF57bDLi48OC48tx12ceHBceG57bCLCw+OC89th11ceHBceG477OLCg+PCc9thFxceHBee2w67uPDguPDcdtjFhQfHhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXZx4cFxMLyzTuOJh8TBJ76lPfKO8LVt4VFx4bntsIsLD44Lz22HXVx4cFx4bjvs4sKD48Jz22EXFx4cF57bDru48OC48Nx22MWFB8eF57bDLi48OC48tx12ceHBceG57bCLCw+OC89th11ceHBceG477OLCg+PCc9thFxceHBee2w67uPDguPDcdtjFhQfHhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXbxheAPe73eTnk9f9d7sid863EMfDm/fSg/jF554lcRB8EfVwe+GL7sPT0qr9vbdW8FTqS5B3584Cv+4evx5y19A+YdT3xtuw5++PPlo8nRFz7s4ovBX3AfDorjgfCtxznwpXgx2j0q7+qfFcK3HufA35qW9sg7wte2hUfFhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXZx4cFx4bntsIsLD44Lz22HXVx4cFx4bjvs4sKD48Jz22EXFx4cF57bDru48OC48Nx22MWFB8eF57bDLi48OC48tx12ceHBceG57bCLCw+OC89th11ceHBceG477OLCg+PCc9thFxceHBee2w67uPDgOBjeWafxxEPi4BPf0h55R/jatvCouPDcdtjFhQfHhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXZx4cFx4bntsIsLD44Lz22HXVx4cFx4bjvs4sKD48Jz22EXFx4cF57bDru48OC48Nx22MWFB8eF57bDLi48OC48tx128XvhT3/Yv/ggfBfxjuDP3myN5+En4buJd3vifanvLN7de/zH6sQ/8KW+o3h3J/77t574DuO+1HPbYRe//6X+1xfCdxjv7sQ/9z2+y7j/Aw63HXZxTzw43u2J//L46uH5u96Tvcn1mfDtx7uFv3ZrP3o1uR7vFAcD4VuPdwt/8u0V/PBl7+lRef28V9kXxfb23W8CTryZeY+fvtSX2sPX5fX9BbwnPu7ii97Vj8E/C7+SeHfw1ZG/dlN/OCiOB4Xv8auKdwZ/9uZFeVc//b9lx3fzo90j7+pXE/cvYnDbYRdf6MQLv9o45j1e+NXGSXf1wq8w3h18+TJ/8s19fxmjpT3yjvC17Rn4s3+V6Cff+R7fUdy7em477OLe1YPj3tVz22EX964eHBee2w67uPDguPDcdtjFhQfHhee2wy4uPDguPLcddnHhwXHhue2wiwsPjgvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXZx4cFx4bntsIsLD44Lz22HXVx4cPxGu99iW3hWXHhuW/ise+Qd4evawrPiwnPbwmfdI+8IX9cWnhUXntsWPuseeUf4urbwrDgY3lnZ9Nv/LTzxkDj4xLe0R94Rvq4tPCsuPLctfNY98o7wdW3hWXHhuW3hs+6Rd4SvawvPigvPbQufdY+8I3xdW3hWXHhuW/ise+Qd4evawrPiwnPbwmfdI+8IX9cWnhUXntsWPuseeUf4urbwrLjw3LbwWffIO8LXtYVnxYXntoXPukfeEb6uLTwrLjy3LXzWPfKO8HVt4Vlx4bntzPH+1Ydb7Zu/NPv1hb8thEfFhc85widGeFRc+JwjfGKER8WFzznCJ0Z4VFz4nCN8YoRHxYXPOcInRnhUXPicI3xihEfFhc85widGeFRc+JwjfGKER8WFzznCJ0Z4VBwKP/ql95cP5fX8Xe/JnvAtxKHwh4PicKf6BnjliW8nDoUv53hQfhi+7D09Kq/b23O8GzgLTP/qw9y/NPl6ln+q6B740W4FfrxTDF+PP1/0+2zOb8C844lPzGInfvTPDxePjneEbyEOhR/+beJevtePX/KF3xD4g16vt1O+2pd39c8K4VuIQ+Fvz6K/3Zx75B3hEyM8Ki58zhE+McKj4sLnHOETIzwqLnzOET4xwqPiwucc4RMjPCoufM4RPjHCo+LC5xzhEyM8Ki58zhE+McKj4sLnnMXbC/wxpuP9y0v/zljyy3fB94VfSVt44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0Z44ZvFhW+2R94RPjHCp0b4DZ2l/2mf/uWlf2cs+eV7/sWhbv8xotlZ9Ptszm/AvOOJT4wv9akRXvhmceGb7ZF3hE+M8KkRXvhmceGb7ZF3hE+M8KkRXvhmceGb7ZF3WoPv3xm/gKjg+zNik6/0p1+5/ptdPXf84Br8+L/qX1yn31fVr/Qvf7+rX5hnfeFTI7zwdU8TfrkRfvpY+M7awgtf9zThlxvhp4+F76wtvPB1TxN+uRF++lj4ztrCC1/3NOGXG+Gnj4XvrC288HVPE365EX76WPjO2sILX/c04Zcb4aePhe+sLbzwdU8TfrkRfvpY+M7awgtf9zThlxvhp4+F76wtvPB1TxN+uRF++lj4ztrCC1/3NOGXG+Gnj4XvrC288HVPE365EX76WPjO2sILX/c04Zcb4aePhe+sLbzwdU8TfrkRfvqYB3/+rvfs+lX4DYE/3ikOBteuwm8I/Oe9ynx63d6e9y3BiTB3wr+/AL+8ru2Jh8RX166Bnz3xwsdd3Pd4cBwDP76bH+0erf1dPSSOgb89Le2Rd4SvbQuPigvPbYddXHhwXHhuO+ziwoPjwnPbYRcXHhwXntsOu7jw4Ljw3HbYxYUHx4XntsMuLjw4Ljy3HXZx4cFx4bntsIsvCR9iwv5d4FUvLjxkhHdWMsJv6Ai/oSP8ho7wGzrrAf9+b3wZ/6zX+CdADnu93k63O8011xcvisPqR5aGPx2t4ndeP/jLn/n67UOnK803N+APeoPq+/ap8HPP+73yj+5wcP2nPI8jHPgbi49+r0784T92hZ97rv/5Xfxcd4gDf2Px8Uv98Kf/Cj//3D7xw5+73mmuuQW/spuTNYA/GJz/+8P4nf3ae3yEV/qZxS9u7kae+Dln+LL6ge5fen8fTO/qJ3+G8JlZXHhnBSP8ho7wGzrCb+gIv6Ej/IaO8LNz+tdPV4/P3rzocJNWR/jZOflO+HWfk6+3Huyf/PnHB/tftrYeFcXH8uPZm62Hny4//cOPwq/hnH7/tvj46OSbt+NT/uuL8uPpD/vlx4tPv90/+Vr4NZzJi3r1sTzhW1uPq1eAr96Wn08+/fi4KPm7XrKtEX4M/6j6/MuD/fJFoIIffyr8uk71Uv/l4X9K+PLlvryPK72/jE/85NPypf70ufDrOJObu+rcj+/mTp9v/fH5i9Pn05u7r/4kvLNeI/yGjvAbOsJv6Ai/ofN/hBBL7glAmYMAAAAASUVORK5CYII=" alt="plot of chunk vis2014"/></p>
+
+<p>Again, who does the most tweeting and retweeting?</p>
+
+<pre><code class="r">counts2014 &lt;- tweetCounts(ismb14)
+head(counts2014)
+</code></pre>
+
+<pre><code>##              screenName total original retweet
+## __jasf           __jasf     1        0       1
+## _bow_             _bow_     7        5       2
+## _BUKANARTIS _BUKANARTIS     1        1       0
+## _inundata     _inundata     1        0       1
+## _JulieNixon _JulieNixon     2        0       2
+## _ThWill_       _ThWill_     1        0       1
+</code></pre>
+
+<pre><code class="r">head(counts2014[order(counts2014$total, decreasing=TRUE), ])
+</code></pre>
+
+<pre><code>##                      screenName total original retweet
+## rtraborn               rtraborn   137       99      38
+## iGenomics             iGenomics   102       75      27
+## WonderMixTape     WonderMixTape    81       42      39
+## GigaScience         GigaScience    79       70       9
+## jmgreene83           jmgreene83    74       60      14
+## Alfons_Valencia Alfons_Valencia    71       40      31
+</code></pre>
+
+<pre><code class="r">head(counts2014[order(counts2014$retweet, decreasing=TRUE), ])
+</code></pre>
+
+<pre><code>##                    screenName total original retweet
+## OmicsOmicsBlog OmicsOmicsBlog    64        0      64
+## Daniel_B_Roche Daniel_B_Roche    46        3      43
+## druvus                 druvus    55       15      40
+## WonderMixTape   WonderMixTape    81       42      39
+## rtraborn             rtraborn   137       99      38
+## cathcoste           cathcoste    35        0      35
+</code></pre>
+
+<h2>Comparison</h2>
+
+<h3>Density of Tweets Compared to Start Time</h3>
+
+<p>Now we want to do a comparison between the two datasets. Initially, we will compare the frequency of tweets over time with respect to the starting date of the conference. In 2012, the special interest groups started at 8:30, July 13, 2012. In 2014, the start was at 8:30, July 11, 2014. We will calculate the difference in time of the tweets compared to the start time in hours.</p>
+
+<pre><code class="r">start2012 &lt;- as.POSIXlt(&quot;2012-07-13 08:30 PST&quot;)
+start2014 &lt;- as.POSIXlt(&quot;2014-07-11 08:30 PST&quot;)
+
+diff12 &lt;- as.numeric(difftime(ismb12$created, start2012, units = &quot;hours&quot;))
+diff14 &lt;- as.numeric(difftime(ismb14$created, start2014, units = &quot;hours&quot;))
+
+diffAll &lt;- data.frame(time = c(diff12, diff14), year = rep(c(&quot;12&quot;, &quot;14&quot;), times = c(length(diff12), length(diff14))))
+</code></pre>
+
+<pre><code class="r">ggplot(diffAll, aes(x = time, fill = year)) + geom_density(alpha = 0.5)
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk plotStart"/></p>
+
+<h3>Ranking of Repeat Tweeters</h3>
+
+<p>Assuming that there are repeat tweeters between the years, lets compare their ranks between the two years. We will use two metrics, total number of original tweets (not retweets), and how many retweets an individual got (measure of popularity of a tweet).</p>
+
+<pre><code class="r">bothYears &lt;- intersect(ismb12$screenName, ismb14$screenName)
+</code></pre>
+
+<pre><code class="r">counts2012$rank &lt;- tweetRank(counts2012$total)
+counts2014$rank &lt;- tweetRank(counts2014$total)
+
+countDiff1214 &lt;- abs(counts2012[bothYears, &quot;rank&quot;] - counts2014[bothYears, &quot;rank&quot;])
+countDiff1214 &lt;- data.frame(screenName = bothYears, diff = countDiff1214, stringsAsFactors = FALSE)
+countDiff1214 &lt;- countDiff1214[order(countDiff1214$diff),]
+head(countDiff1214)
+</code></pre>
+
+<pre><code>##          screenName diff
+## 26      julponchart   34
+## 32      genomespace   34
+## 87      gkarthik_92   34
+## 100 SpringerCompSci   34
+## 3              FGED   69
+## 11  kseniakrasileva   76
+</code></pre>
+
+<pre><code class="r">tail(countDiff1214)
+</code></pre>
+
+<pre><code>##         screenName  diff
+## 28        infoecho 442.0
+## 91        nomad421 481.0
+## 29 pathogenomenick 500.0
+## 37     drbachinsky 547.5
+## 41     jamesmalone 562.0
+## 85 i_am_kilpatrick 573.0
+</code></pre>
+
+<pre><code class="r">rtCount12 &lt;- retweetCount(ismb12)
+rtCount14 &lt;- retweetCount(ismb14)
+</code></pre>
+
+<pre><code class="r">rtTot12 &lt;- totalRT(rtCount12, &quot;countRT&quot;)
+rtTot14 &lt;- totalRT(rtCount14, &quot;countRT&quot;)
+
+rtTot12$rank &lt;- tweetRank(rtTot12$sumRT)
+rtTot14$rank &lt;- tweetRank(rtTot14$sumRT)
+
+bothRT &lt;- intersect(rtTot12$screenName, rtTot14$screenName)
+
+rtDiff1214 &lt;- abs(rtTot12[bothRT, &quot;rank&quot;] - rtTot14[bothRT, &quot;rank&quot;])
+rtDiff1214 &lt;- data.frame(screenName = bothRT, diff = rtDiff1214, stringsAsFactors = FALSE)
+rtDiff1214 &lt;- rtDiff1214[order(rtDiff1214$diff), ]
+head(rtDiff1214)
+</code></pre>
+
+<pre><code>##       screenName diff
+## 2  antidemagogue  3.5
+## 6    biobrichter  3.5
+## 8            c_z  3.5
+## 10     chunleiwu  3.5
+## 17        EvoMRI  3.5
+## 41      nomad421  3.5
+</code></pre>
+
+<pre><code class="r">tail(rtDiff1214)
+</code></pre>
+
+<pre><code>##      screenName  diff
+## 3  assemblathon 121.0
+## 49 WikiPathways 121.0
+## 9   Chris_Evelo 133.0
+## 13       druvus 160.5
+## 33  jamesmalone 160.5
+## 16    etalevich 168.5
+</code></pre>
+
+</body>
+
+</html>
