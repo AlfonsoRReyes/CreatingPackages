@@ -20,7 +20,6 @@ git init
 ```
 
 
-
 Open RStudio and push the original structure just created.
 
 Modify the file `DESCRIPTION` and add this line at the end:
@@ -29,7 +28,7 @@ Modify the file `DESCRIPTION` and add this line at the end:
 VignetteBuilder: knitr
 ```
 
-Ensure that `roxygen2` check box is deactivated in the `Roxygen` options under `Tools`, `Project Options`.
+**Note.** Ensure that `roxygen2` check box is deactivated in the `Roxygen` options under `Tools`, `Project Options`.
 
 
 
