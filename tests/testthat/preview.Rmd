@@ -84,6 +84,9 @@ expect_equal(result, 814)
 
 ```{r}
 # compare dimensions, names, class, size DF in bytes, size attributes in bytes
+baseLoc <- system.file(package="ismbTweetAnalysis")
+extPath <- file.path(baseLoc, "extdata")
+
 ismb <- readTweetData(file.path(extPath, "ismb.txt"), "ismb")
 ismb2014 <- readTweetData(file.path(extPath, "ismb2014.txt"), "ismb2014")
 
