@@ -1,0 +1,12 @@
+---
+title: "NEWS"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+
+20170418 Push a new version v0.1.2. Package being created succesfully. Couple of
+corrections in R file (add parameter in function), add stringr in DESCRIPTION
+imports and remove unnecessary line in R data definitions.
+

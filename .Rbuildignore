@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.Rprofile$
-README.Rmd
+^README\.Rmd$       # An Rmarkdown file used to generate README.md
+^NEWS\.md$          # A news file written in Markdown
