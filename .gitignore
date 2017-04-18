@@ -8,5 +8,11 @@
 .RData
 README.nb.html
 README.html
+<<<<<<< HEAD
 .DS_Store
 README.Rmd
+=======
+
+
+*.Rd
+>>>>>>> 0.1.0
