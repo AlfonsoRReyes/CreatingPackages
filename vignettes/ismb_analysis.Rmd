@@ -13,9 +13,21 @@ Before we start to use this data, we will do some munging on it so that both dat
 
 
 ```{r datamunging}
+# after build and load the package is loaded.
+# these line below should work then
 baseLoc <- system.file(package="CreatingPackages")
 extPath <- file.path(baseLoc, "extdata")
 ```
+
+```{r}
+baseLoc
+extPath
+# These should look like the output 
+# which are the folders where the package was installed
+# [1] "/home/superuser/R/x86_64-pc-linux-gnu-library/3.3/CreatingPackages"
+# [1] "/home/superuser/R/x86_64-pc-linux-gnu-library/3.3/CreatingPackages/extdata"
+```
+
 
 ```{r data2012, eval=FALSE}
 load(file.path(extPath, "ismb2012.RData"))
@@ -41,7 +53,7 @@ Lets do some simple things in each case. For example, we can look at the distrib
 ## 2012 
 
 ```{r load2012}
-library(CreatingPackages)
+# library(CreatingPackages)
 data(ismb2012)
 head(ismb12)
 ```
