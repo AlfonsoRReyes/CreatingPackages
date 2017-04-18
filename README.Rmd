@@ -88,9 +88,11 @@ Main folder structure:
 -<>-|---- data
 	|---- inst
 			|---- extdata
+			|---- doc
 	|---- R
 	|---- src
 	|---- vignettes
+	|---- tests
 
 
 ```
