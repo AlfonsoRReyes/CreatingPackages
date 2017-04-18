@@ -3,7 +3,6 @@
 #' Twiter Data to generate ranking
 #'
 #' @docType data
-#'
 #' @keywords datasets
 #'
 #'
