@@ -92,6 +92,7 @@ Main folder structure:
 	|---- R
 	|---- src
 	|---- vignettes
+	|---- tests
 
 
 ```
