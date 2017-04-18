@@ -6,6 +6,7 @@ output:
   html_notebook: default
 ---
 
+## Steps to publish a package
 
 1. Install these packages: `devtools`, `roxygen2`, 
 
@@ -38,10 +39,11 @@ VignetteBuilder: knitr
 
 
 Add these folders: `data`, `inst`, `inst/extdata` to the project root.
+PDF papers and other documents go under `./inst/doc`
 
-Copy these raw data files to `inst/extdata`:
+Copy raw data files to `inst/extdata`:
 
-We will use these files for processing later. All processed data will go to `./data`
+We will use these files for processing later. All processed .Rda files will go in `./data`
 
 
 
